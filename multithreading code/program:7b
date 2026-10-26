@@ -1,1 +1,17 @@
+#include <stdio.h>
 
+int main() {
+    int avail = 3, max[2] = {3, 2}, alloc[2] = {1, 1}, need[2];
+    for(int i = 0; i < 2; i++) need[i] = max[i] - alloc[i];
+    int req = 1;
+    if(req <= need[0] && req <= avail) {
+        avail -= req; 
+        alloc[0] += req; 
+        need[0] -= req;
+        printf("Safe: Req granted. Available", avail);
+    }
+    else {
+        printf("Unsafe: request denied");
+    }
+    return 0;
+}
